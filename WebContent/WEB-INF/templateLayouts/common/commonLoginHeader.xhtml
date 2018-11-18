@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+      
+    <h:head>
+    <h:outputStylesheet name="css/styles.css" />
+</h:head>
+    <body>
+	    <ui:composition>
+	    	<div class="float-left">
+           		<h1><a href="#">Travel buddy</a></h1>
+           	</div>
+            <div class="float-right">
+				<div>
+	        		<h:outputLabel for="username" value="username " />
+					<h:inputText id="username" label="username">
+					</h:inputText>
+					<h:outputLabel for="password" value="password " />
+					<h:inputText id="password" label="password">
+					</h:inputText>
+	        	</div>
+	        	<div>
+	        		<h:link value = "register" outcome = "register" />
+	        	</div>
+			</div>
+	    </ui:composition>
+    </body>
+</html>

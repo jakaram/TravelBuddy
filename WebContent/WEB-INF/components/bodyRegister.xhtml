@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<p:tooltip />
+	<h:form>
+
+		<p:growl id="growlRegister" sticky="true" showSummary="true" />
+
+		<p:panelGrid columns="3" cellpadding="5">
+			<f:facet name="header">Registration</f:facet>
+
+			<h:outputLabel for="firstname" value="Firstname:" />
+			<p:inputText id="firstname" value="#{user.registrationUser.firstname}"
+				required="true" label="firstname" requiredMessage="Firstname is required">
+			</p:inputText>
+			<p:message for="firstname" display="tooltip" />
+
+			<h:outputLabel for="lastname" value="Lastname:" />
+			<p:inputText id="lastname" value="#{user.registrationUser.lastname}"
+				required="true" label="lastname" requiredMessage="Lastname is required">
+			</p:inputText>
+			<p:message for="lastname" display="tooltip" />
+			
+			<h:outputLabel for="username" value="Username:" />
+			<p:inputText id="username" value="#{user.registrationUser.username}" 
+				required="true" label="username" requiredMessage="Username is required"
+			 	validatorMessage="Username must contain minimum 12 chatacters, excluding @, # and /">
+            	<f:validateRegex pattern="[^@#\/]{12,50}" />
+			</p:inputText>
+			<p:message for="username" display="tooltip" />
+			
+			<h:outputLabel for="password" value="Password:" />
+			<p:password id="password" value="#{user.registrationUser.password}"
+				required="true" label="password"
+				requiredMessage="Password is required"
+				validatorMessage="Password must contain minimum 15 characters">
+				<f:validateLength minimum="15" maximum="50" />
+			</p:password>
+			<p:message for="password" display="tooltip" />
+			
+			<h:outputLabel for="confirmPassword" value="Confirm password:" />
+			<p:password id="confirmPassword" value="#{user.passwordConfirmation}"
+				required="true" label="confirmPassword"
+				requiredMessage="Pasword doesn't match"
+				validatorMessage="Password requires at least 1 uppercase, 1 lowercase and 1 digit">
+				<f:validateRegex pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{15,})" />
+			</p:password>
+			<p:message for="confirmPassword" display="tooltip" />
+			
+			<h:outputLabel for="email" value="Email:" />
+			<p:inputText id="email" value="#{user.registrationUser.email}"
+				required="true" label="email"
+				requiredMessage="Email is required"
+				validatorMessage="Invalid email address">
+				<f:validateRegex
+					pattern="^[a-zA-Z0-9]+[.]?[a-zA-Z0-9]*@[a-zA-Z]+[.][a-zA-Z]+" />
+			</p:inputText>
+			<p:message for="email" display="tooltip" />
+			
+			<p:outputLabel for="birthday" value="Birthday:" />
+        	<p:calendar id="birthday" value="#{user.registrationUser.birthday}"
+        		required="true" label="birthday"
+				requiredMessage="Birthday is required">
+			</p:calendar>
+   			<p:message for="birthday" display="tooltip" />
+   			
+			<f:facet name="footer">
+				<p:commandButton value="Register" action="#{user.registerUser}"
+					update="growlRegister" />
+			</f:facet>
+
+		</p:panelGrid>
+	</h:form>
+	<br/>
+	<br/>
+</ui:composition>
+</html>

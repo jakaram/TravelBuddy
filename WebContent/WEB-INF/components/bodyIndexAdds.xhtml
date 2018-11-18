@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<div>	
+		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+        <h:outputText value="Kategorija:" />
+        <p:selectOneButton value="#{selectOneView.option}">
+            <f:selectItem itemLabel="Trazim" itemValue="Trazim" />
+            <f:selectItem itemLabel="Nudim" itemValue="Nudim" />
+        </p:selectOneButton>
+ 
+        <p:commandButton value="Submit" update="display" icon="ui-icon-check" />
+        <p:spacer />
+ 
+        <h:outputText value="Selected:" />
+        <h:outputText id="display" value="#{selectOneView.option}" style="font-weight: bold" />
+    </h:panelGrid>			
+	</div>
+</ui:composition>
+</html>

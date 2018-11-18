@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+	
+	<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><ui:insert name="title" /></title>
+	<h:outputStylesheet name="css/style.css" />
+	<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css' />
+	</h:head>
+
+    <h:body>
+	<div id="page">
+	    <div id="header">
+		<ui:insert name="header" >
+		  <ui:include src="/WEB-INF/templateLayouts/common/commonLoginHeader.xhtml" />
+		</ui:insert>
+	    </div>
+
+	    <div id="content">
+	  	<ui:insert name="content" >
+	 	  <ui:include src="/WEB-INF/templateLayouts/common/commonContent.xhtml" />
+	   	</ui:insert>
+	    </div>
+
+	    <div id="footer">
+	    	<ui:insert name="footer" >
+	    	  <ui:include src="/WEB-INF/templateLayouts/common/commonFooter.xhtml" />
+	    	</ui:insert>
+    	    </div>
+
+        </div>
+
+    </h:body>
+</html>
